@@ -1,8 +1,8 @@
 """news-image-20261123 -- make.fun entry.
 
-Builds the entry image: copies the newspaper front page (entry.png,
-1024x1024, summing up 23 November 2026's world news) into the output
-directory and verifies the copy with SHA-256.
+Copies the newspaper front page (entry.png, 1024x1024, summing up
+23 November 2026's world news) into the output directory and
+verifies the copy with SHA-256.
 
 Usage:
     python3 main.py [--output PATH]
