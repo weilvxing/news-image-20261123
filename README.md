@@ -1,32 +1,77 @@
-# news-image-20261123
+# The World in One Page — 23 November 2026
 
-[![make.fun · news-image-20261123](https://make.fun/badge/news-image-20261123.svg)](https://make.fun/bounty/news-image-20261123?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261123)
-[![rank](https://make.fun/badge/news-image-20261123/weilvxing/news-image-20261123/rank.svg)](https://make.fun/bounty/news-image-20261123/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261123)
-[![reward](https://make.fun/badge/news-image-20261123/weilvxing/news-image-20261123/reward.svg)](https://make.fun/bounty/news-image-20261123?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261123)
+[make.fun · news-image-20261123](https://make.fun/c/news-image-20261123)
 
-A one-page newspaper front page summing up 23 November 2026's world news in a single 1024x1024 image: the COP31 climate deal collapses in Antalya, Iran vows to counter the U.S. blockade, Kyiv region strikes kill at least 15, Mexico captures "Chapo Isidro", Democrats take their biggest House majority in decades, and Geneva peace talks open.
+A newspaper front-page image summing up the world's news of
+**Monday 23 November 2026**, entered in the make.fun competition
+`news-image-20261123`.
 
-## Run it
+## What the entry is
+
+One image, `entry.png`: a front page that names the day it sums up and
+carries the day's most consequential stories, across regions and fields,
+so a reader who missed the day can tell what happened from the image
+alone. The program `main.py` simply copies that image to the output
+location the competition expects, after checking its SHA-256 digest —
+the image is the entry, and the program makes sure the exact bytes
+reach the judge.
+
+## The stories on the front page
+
+1. **COP31 collapses in Antalya** — the longest climate summit ever
+   ended with no deal.
+2. **Iran warns the US** — Tehran said it will use "all means" against
+   a US blockade, after striking US positions in Bahrain.
+3. **Ukraine under attack** — the Kyiv region was attacked, at least
+   15 people killed, and a kindergarten in Kharkiv was hit.
+4. **"Chapo Isidro" captured** — Mexico captured the Sinaloa leader,
+   wanted by the FBI.
+5. **Democrats' big House win** — the Democrats won their largest
+   House majority in decades.
+6. **Geneva peace talks open** — peace talks opened in Geneva.
+
+Footer items: BepiColombo arrived at Mercury; the search and rescue
+after the Indonesia factory fire; South Korea's education minister
+resigned over AI cheating.
+
+## How to run
+
+Python 3.13, standard library only — nothing to install.
 
 ```sh
 python3 main.py
 ```
 
-This copies `entry.png` to `/output/entry.png` and verifies it with SHA-256. Use `python3 main.py --output <path>` to write it somewhere else. Running it twice produces a byte-identical file.
+That writes the image to `/output/entry.png` (the grader's location).
+To write it somewhere else:
 
-## The news in this image
+```sh
+python3 main.py --output out/entry.png
+```
 
-All six stories are real, reported on 23 November 2026:
+or set the output directory:
 
-- **Main headline — COP31 climate deal collapses.** The UN climate summit in Antalya, Turkey, ended without a deal after the EU and other nations rejected a draft pact with no explicit reference to fossil fuels; the longest climate conference in history. (South China Morning Post; Just Security)
-- **Iran vows to counter U.S. blockade.** Tehran says it will use "all available means" after an Iranian missile and drone assault on U.S. military positions in Bahrain. (Al Jazeera; Just Security)
-- **Kyiv region strikes kill at least 15.** Russian attacks hit homes in the Kyiv region and a kindergarten in Kharkiv; Ukraine claims drone strikes on Russian ships off Libya. (South China Morning Post; Al Jazeera)
-- **Mexico captures "Chapo Isidro".** Troops seized the Sinaloa cartel leader, on the FBI's most wanted list, in a deadly firefight. (Just Security; South China Morning Post)
-- **Democrats take biggest House majority in decades.** The U.S. midterms hand Democrats a commanding House majority. (South China Morning Post)
-- **Geneva peace talks open.** Representatives of the US, Ukraine and European countries met in Geneva to discuss ways to end the Russia-Ukraine war. (Xinhua world news summary, 23 Nov 2026)
+```sh
+MAKEFUN_OUTPUT_DIR=out python3 main.py
+```
 
-Also noted in the footer: the Europe-Japan BepiColombo probe reaches Mercury, the search goes on for dozens missing after the Indonesia factory fire, and South Korea's education minister resigns after an AI cheating scandal.
+Before copying, the program verifies `entry.png` against its expected
+SHA-256 digest and refuses to copy if the image is damaged or has been
+swapped — the error message shows the file, its size, and both the
+expected and actual digests. It prints the output path, size and
+digest on success. The copy is a plain byte copy, so repeated runs
+produce byte-identical output.
 
----
+To check the image without writing anything:
 
-<sub>Entered on [make.fun](https://make.fun/?ref=15bnmmv0&utm_source=github&utm_medium=readme&utm_campaign=news-image-20261123) · AI agents build software for cash rewards</sub>
+```sh
+python3 main.py --verify-only
+```
+
+Expected digest: `966ef30203a96555a838fbdb2b4b043e7b4065f3f4296a14ed515b9fc4f76ce6`.
+
+## Files
+
+- `main.py` — the entry program (this file's only job is the verified copy above)
+- `entry.png` — the front-page image
+- `LICENSE` — the repository licence
